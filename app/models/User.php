@@ -10,7 +10,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
-	protected $table = 'users';
+	protected $table = 'user';
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -80,4 +80,57 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->email;
 	}
 
+	/**
+	 * Get all roles available
+	 * 
+	 * @return array
+	 */
+	public static function getRoles()
+	{
+		$get_roles = DB::table('role')->lists('role_name','id');
+		$roles = array('' => trans('messages.Please Select a Role')) + $get_roles;
+	
+		return $roles;
+	}
+	
+	/**
+	 * Get all customers
+	 * 
+	 * @return array
+	 */
+	public static function getCustomers()
+	{
+		$get_customers = DB::table('customer')->lists('company_name','id');
+		$customers = array('' => trans('messages.Please Select a customer')) + $get_customers;
+	
+		return $customers;
+	}
+	
+	/**
+	 * Get role for a user
+	 * 
+	 * @param Integer $id
+	 * @return array
+	 */
+	public static function getUserRole($id)
+	{
+		$get_user_role = DB::table('user')->join('role', 'user.role_id', '=', 'role.id')->where('user.id', '=', $id)
+		->get(array('role.role_name'));
+	
+		return $get_user_role;
+	}
+	
+	/**
+	 * Get Customer of a user
+	 * 
+	 * @param Integer $id
+	 * @return array
+	 */
+	public static function getUserCustomer($id)
+	{
+		$get_user_customer = DB::table('user')->join('customer', 'user.customer_id', '=', 'customer.id')->where('user.id', '=', $id)
+		->get(array('customer.company_name'));
+	
+		return $get_user_customer;
+	}
 }

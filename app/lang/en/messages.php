@@ -1,0 +1,28 @@
+<?php
+return array(
+
+		'login' 	  				  => 'login',
+		'password' 	   				  => 'Password',
+		'lastname'     				  => 'Lastname',
+		'Groupe'  	   				  => 'Groupe',
+		'Actions' 	   				  => 'Actions',
+		'email-address'				  => 'E-Mail Address',
+		'Please first login'   		  => 'Please first login',
+		'Create a User'				  => 'Create a User,',
+		'Lougout' 					  => 'Lougout',
+		'All the Users' 			  => 'All the Users',
+		'Groupe' 					  => 'Groupe',
+		'Actions' 					  => 'Actions',
+		'Show this User'			  => 'Show this User',
+		'Edit this User'			  => 'Edit this User',
+		'Delte this User'			  => 'Delete this User',
+		'messages.you are logged out' => 'messages.you are logged out',
+		'You are already logged in!'  => 'You are already logged in!',
+		'View All Users'			  => 'View All Users',
+		'Create a User'				  => 'Create a User',
+		'logout'					  => 'Logout',
+		'Delete this User'			  => 'Delete this User',
+		'you are logged out'		  => 'you are logged out',
+		'Showing'					  => 'Showing',
+		'not_available'				  => 'Not available',
+);

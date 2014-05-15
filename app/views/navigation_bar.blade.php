@@ -4,9 +4,9 @@
 $data = Session::all();
 #print_r($data);
 $user_role = Session::get('user_gruppe_name');
-print_r($user_role);
+$user_name = Session::get('user_name');
 ?>
-
+<span>Hallo {{$user_name}} du bist als {{ $user_role}} angemeldet.</span>
 
 <?php  #if($user_role == 'admin') {?>
 <li class="topmenu"><a href="{{ URL::to('users') }}"><?php echo trans('messages.Users'); ?></a>    

@@ -22,26 +22,41 @@ App::after(function($request, $response)
 	//
 });
 
-/*
-|--------------------------------------------------------------------------
-| Authentication Filters
-|--------------------------------------------------------------------------
-|
-| The following filters are used to verify that the user of the current
-| session is logged into this application. The "basic" filter easily
-| integrates HTTP Basic authentication for quick, simple checking.
-|
-*/
-
+/**
+ * used for accessing all other pages. Possibly add check for rights here!
+ */
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::guest('login');
+	if (Auth::check())
+	{
+	    return Route::resource('users', 'UserController');
+	}
+	else
+	{
+		$message = Lang::get('messages.Please first login');
+		return Redirect::to('login')->with('message', $message);	
+	}
 });
 
 
-Route::filter('auth.basic', function()
+/**
+ * checks if a user is already logged in when visting login page. Redirects to user page if already logged in, else to 
+ * login page
+ */
+Route::filter('authLogin', function()
 {
-	return Auth::basic();
+
+	if (Auth::check())
+	{
+		$message = Lang::get('messages.You are already logged in!');
+		return Redirect::to('users')->with('message', $message);
+	}
+	else
+	{
+		#return Redirect::to('login');
+		Route::get('login/{lang?}', array('uses' => 'AuthController@showLogin'));
+	}
+
 });
 
 /*
@@ -60,6 +75,8 @@ Route::filter('guest', function()
 	if (Auth::check()) return Redirect::to('/');
 });
 
+
+
 /*
 |--------------------------------------------------------------------------
 | CSRF Protection Filter
@@ -77,4 +94,34 @@ Route::filter('csrf', function()
 	{
 		throw new Illuminate\Session\TokenMismatchException;
 	}
+});
+
+Route::filter('admin', function()
+{
+	
+});
+
+Route::filter('guest', function()
+{
+
+});
+
+Route::filter('supervisor', function()
+{
+
+});
+
+Route::filter('user', function()
+{
+
+});
+
+Route::filter('workers', function()
+{
+
+});
+
+Route::filter('customer', function()
+{
+
 });

@@ -13,7 +13,7 @@ return array(
 	|
 	*/
 
-	'debug' => false,
+	'debug' => true,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -53,6 +53,10 @@ return array(
 	*/
 
 	'locale' => 'en',
+	'locales' => array(
+				'en', // English
+				'de',
+		),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,32 +97,40 @@ return array(
 
 	'providers' => array(
 
-		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
-		'Illuminate\Auth\AuthServiceProvider',
-		'Illuminate\Cache\CacheServiceProvider',
-		'Illuminate\Session\CommandsServiceProvider',
-		'Illuminate\Foundation\Providers\ConsoleSupportServiceProvider',
-		'Illuminate\Routing\ControllerServiceProvider',
-		'Illuminate\Cookie\CookieServiceProvider',
-		'Illuminate\Database\DatabaseServiceProvider',
-		'Illuminate\Encryption\EncryptionServiceProvider',
-		'Illuminate\Filesystem\FilesystemServiceProvider',
-		'Illuminate\Hashing\HashServiceProvider',
-		'Illuminate\Html\HtmlServiceProvider',
-		'Illuminate\Log\LogServiceProvider',
-		'Illuminate\Mail\MailServiceProvider',
-		'Illuminate\Database\MigrationServiceProvider',
-		'Illuminate\Pagination\PaginationServiceProvider',
-		'Illuminate\Queue\QueueServiceProvider',
-		'Illuminate\Redis\RedisServiceProvider',
-		'Illuminate\Remote\RemoteServiceProvider',
-		'Illuminate\Auth\Reminders\ReminderServiceProvider',
-		'Illuminate\Database\SeedServiceProvider',
-		'Illuminate\Session\SessionServiceProvider',
-		'Illuminate\Translation\TranslationServiceProvider',
-		'Illuminate\Validation\ValidationServiceProvider',
-		'Illuminate\View\ViewServiceProvider',
-		'Illuminate\Workbench\WorkbenchServiceProvider',
+			'Illuminate\Foundation\Providers\ArtisanServiceProvider',
+			'Illuminate\Auth\AuthServiceProvider',
+			'Illuminate\Cache\CacheServiceProvider',
+			'Illuminate\Foundation\Providers\CommandCreatorServiceProvider',
+			'Illuminate\Session\CommandsServiceProvider',
+			'Illuminate\Foundation\Providers\ComposerServiceProvider',
+			'Illuminate\Routing\ControllerServiceProvider',
+			'Illuminate\Cookie\CookieServiceProvider',
+			'Illuminate\Database\DatabaseServiceProvider',
+			'Illuminate\Encryption\EncryptionServiceProvider',
+			'Illuminate\Filesystem\FilesystemServiceProvider',
+			'Illuminate\Hashing\HashServiceProvider',
+			'Illuminate\Html\HtmlServiceProvider',
+			'Illuminate\Foundation\Providers\KeyGeneratorServiceProvider',
+			'Illuminate\Log\LogServiceProvider',
+			'Illuminate\Mail\MailServiceProvider',
+			'Illuminate\Foundation\Providers\MaintenanceServiceProvider',
+			'Illuminate\Database\MigrationServiceProvider',
+			'Illuminate\Foundation\Providers\OptimizeServiceProvider',
+			'Illuminate\Pagination\PaginationServiceProvider',
+			'Illuminate\Foundation\Providers\PublisherServiceProvider',
+			'Illuminate\Queue\QueueServiceProvider',
+			'Illuminate\Redis\RedisServiceProvider',
+			'Illuminate\Auth\Reminders\ReminderServiceProvider',
+			'Illuminate\Foundation\Providers\RouteListServiceProvider',
+			'Illuminate\Database\SeedServiceProvider',
+			'Illuminate\Foundation\Providers\ServerServiceProvider',
+			'Illuminate\Session\SessionServiceProvider',
+			'Illuminate\Foundation\Providers\TinkerServiceProvider',
+			'Illuminate\Translation\TranslationServiceProvider',
+			'Illuminate\Validation\ValidationServiceProvider',
+			'Illuminate\View\ViewServiceProvider',
+			'Illuminate\Workbench\WorkbenchServiceProvider',
+			'Philf\Setting\SettingServiceProvider',
 
 	),
 
@@ -180,7 +192,6 @@ return array(
 		'Schema'          => 'Illuminate\Support\Facades\Schema',
 		'Seeder'          => 'Illuminate\Database\Seeder',
 		'Session'         => 'Illuminate\Support\Facades\Session',
-		'SSH'             => 'Illuminate\Support\Facades\SSH',
 		'Str'             => 'Illuminate\Support\Str',
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
